@@ -1,0 +1,16 @@
+.bg_cont{
+    width: 1000px;
+    height: 800px;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 175px;
+    background-color: #222A34;
+    position: relative;
+}
+
+.clode_red{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
