@@ -1,3 +1,4 @@
+
 .bg_cont{
     width: 1000px;
     height: 800px;
@@ -9,8 +10,12 @@
     position: relative;
 }
 
-.clode_red{
+.close_red{
     position: absolute;
     left: 20px;
     top: 20px;
+}
+
+.header_title{
+    color: white;
 }
