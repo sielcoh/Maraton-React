@@ -1,0 +1,59 @@
+.Download_file_cont{
+    color: white;
+    height: 41%;
+    background-color:#161B21 ;
+    position: relative;
+}
+
+.top{
+    margin-top: 50px;
+    border-bottom: 1px rgba(173, 172, 172, 0.635) solid;
+}
+
+.file_title{
+    font-size: 25px;
+    text-align: right;
+    margin-right: 13px;
+    position: relative;
+    top: 36px;
+}
+
+.file_subtitle{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 13px;
+    position: relative;
+    top: 41px;
+}
+
+.file_btn{
+    color: #5a5ada9c;
+    background-color: transparent;
+    border: 1px solid #9b9beb99;
+    width: 90%;
+    height: 36px;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-top: 67px;
+}
+
+.small_text{
+    text-align: right;
+    padding-right: 33px;
+    font-size: 15px;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.694);
+    background-image: url(./../assets/check.png);
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+.pro_img{
+    position: absolute;
+    right: 0px;
+    top: 30px;
+}
+
+.bottom_title{
+    right: 48px;
+}
