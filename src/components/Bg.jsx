@@ -21,7 +21,7 @@ export default function Bg() {
         </div>
         <div className='right_div'>
           <Download_file title='תמונה חינם' top='top' sub_title='תצוגה מקדימה של תמונה' btn='הורד' small_text='איכות טובה עד 0.25 מגה פיקסל'/>
-          <Download_file title='Pro' top='bottom' sub_title='תמונה מלאה' btn=' HD הורד' small_text='האיכות הטובה ביותר עד 125 מגה פיקסל'/>
+          <Download_file title='Pro' top='bottom' sub_title='תמונה מלאה' btn='HD הורד' small_text='האיכות הטובה ביותר עד 125 מגה פיקסל'/>
         </div>
       </div>
 
