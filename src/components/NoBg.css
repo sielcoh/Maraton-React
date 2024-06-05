@@ -1,0 +1,42 @@
+.no_bg_cont{
+    background-color: #161B21;
+    margin-top: 4px;
+    height: 500px;
+    position: relative;
+}
+
+.no_bg_cont_text{
+    color: rgb(94, 94, 134);
+    text-align: right;
+    padding-right: 30px;
+    position: relative;
+    top: 16px;
+    font-size: 18px;
+    background-image: url(./../assets/warning.png);
+    background-repeat: no-repeat;
+    background-position: 98% 6px;
+}
+
+.bg_color{
+    border: 1px solid #ffffff7d;
+    top: -8px;
+    width: 97px;
+    color: #ffffff7d;
+    text-align: right;
+    border-radius: 19px;
+    height: 28px;
+    padding-right: 10px;
+    margin-left: 14px;
+    font-size: 15px;
+    line-height: 26px;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+}
+
+.color_input{
+    position: absolute;
+    top: 23px;
+    left: 6px;
+    opacity: 0;
+}

@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Bg.css'
-import close_red from './../assets/close.png'
+import NoBg from './NoBg'
 import Download_file from './Download_file'
+import close_red from './../assets/close.png'
 import logo from './../assets/logo.png'
 import banner from './../assets/banner.png'
 
 export default function Bg() {
+  const [selctedTabNoBg, setSelctedTabNoBg] = useState('selected_tab')
+  const [selctedTabOriginal, setSelctedTabOriginal] = useState('')
+
+  const updateTabNoBg = (e) =>{
+    if(e.target.className === 'tab_no_bg ' || e.target.className === 'tab_no_bg selected_tab'){
+      setSelctedTabNoBg('selected_tab')
+      setSelctedTabOriginal('')
+    }else{
+      setSelctedTabNoBg('')
+      setSelctedTabOriginal('selected_tab')
+    }
+  }
+
   return (
     <div className='bg_cont'>
         <img className='close_red' src={close_red} />
@@ -19,6 +33,13 @@ export default function Bg() {
       <div className='middle_cont'>
         <div className='left_div'>
 
+          <div className='tabs_cont'>
+            <div className={'tab_no_bg ' + selctedTabNoBg} onClick={updateTabNoBg}>הוסר רקע</div>
+            <div className={'tab_original ' + selctedTabOriginal} onClick={updateTabNoBg}>מקורי</div>
+          </div>
+
+          {selctedTabNoBg === 'selected_tab' ? <NoBg comt_type='no_bg'/> : <NoBg comt_type='original'/>}
+          
         </div>
         <div className='right_div'>
           <Download_file title='תמונה חינם' top='top' sub_title='תצוגה מקדימה של תמונה' btn='הורד' small_text='איכות טובה עד 0.25 מגה פיקסל'/>
