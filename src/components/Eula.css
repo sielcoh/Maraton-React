@@ -1,0 +1,32 @@
+.overlay{
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.8;
+}
+
+.Eula_cont{
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    border-radius: 33px;
+    position: relative;
+    top: -576px;
+    margin: 0 auto;
+    display: block;
+}
+
+.Eula_Cancel{
+    position: relative;
+    top: 10px;
+    left: 18px;
+    cursor: pointer;
+}
+
+.Eula_text{
+    position: relative;
+    top: 36px;
+    left: 7px;
+}

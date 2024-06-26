@@ -9,7 +9,7 @@ export default function Download_file(props) {
         {props.top === 'bottom' ? <img src={new_img} className='pro_img'/> : <></>}
         <div className={'file_title ' + props.top+"_title"}>{props.title}</div>
         <div className='file_subtitle'>{props.sub_title}</div>
-        <button className='file_btn'>{props.btn}</button>
+        <button className='file_btn' onClick={()=> props.setshowPopUp(true)}>{props.btn}</button>
         <div className='small_text'>{props.small_text}</div>
     </div>
   )
