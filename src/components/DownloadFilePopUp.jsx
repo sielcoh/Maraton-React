@@ -1,9 +1,8 @@
 import React from 'react'
 import './Download_file_popUp.css'
 import cancel_img from './../assets/close1.png'
-import download_img from './../assets/Downloads Folder.png'
 
-export default function Download_file_popUp(props) {
+export default function DownloadFilePopUp(props) {
     return (
 
         <div>

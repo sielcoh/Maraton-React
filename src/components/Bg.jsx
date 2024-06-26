@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import "./Bg.css";
 import NoBg from "./NoBg";
-import Download_file from "./Download_file";
+import DownloadFile from "./DownloadFile";
 import Eula from "./Eula";
 import close_red from "./../assets/close.png";
 import logo from "./../assets/logo.png";
 import banner from "./../assets/banner.png";
-import Download_file_popUp from "./Download_file_popUp";
+import DownloadFilePopUp from "./DownloadFilePopUp";
 import axios from 'axios';
 
 export default function Bg() {
@@ -118,7 +118,7 @@ export default function Bg() {
           </div>
 
           <div className="right_div">
-            <Download_file
+            <DownloadFile
               title="תמונה חינם"
               top="top"
               sub_title="תצוגה מקדימה של תמונה"
@@ -126,7 +126,7 @@ export default function Bg() {
               small_text="איכות טובה עד 0.25 מגה פיקסל"
               setshowPopUp={setshowPopUp}
             />
-            <Download_file
+            <DownloadFile
               title="Pro"
               top="bottom"
               sub_title="תמונה מלאה"
@@ -143,7 +143,7 @@ export default function Bg() {
         </div>
       </div>
       {showEula ? <Eula setShowEula={setShowEula} /> : <></>}
-      {showPopUp ? <Download_file_popUp setshowPopUp={setshowPopUp} /> : <></>}
+      {showPopUp ? <DownloadFilePopUp setshowPopUp={setshowPopUp} /> : <></>}
     </>
   );
 }
