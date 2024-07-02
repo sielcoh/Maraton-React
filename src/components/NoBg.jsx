@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import './NoBg.css'
-import img from './../assets/img.png'
 
 export default function NoBg(props) {
   const inputElement = useRef();
@@ -17,8 +16,7 @@ export default function NoBg(props) {
         <input type='color' className='color_input' ref={inputElement} />
       </div> : <></>}
 
-      <img src={img} className='image_1'/>
-
+      <img src={props.fileName} className='image_1'/>
     </div>
   )
 }

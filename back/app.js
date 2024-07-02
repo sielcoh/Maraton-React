@@ -1,16 +1,32 @@
 const express = require('express')
-const app = express()
-
 const cors = require('cors')
 const fileupload = require("express-fileupload");
+const removeBg = require('./removeBg')
+const app = express()
+
+app.use(express.static('imageNoBg'))
+app.use(express.static('uploadImage'))
+
+
 
 app.use(cors())
 app.use(fileupload());
 
-app.post('/upload_img',(req, res)=> {
-    console.log(req.files);
-    res.send('Its Work!')
-})
 
+app.post('/upload_img', (req, res) => {
+    let date = new Date();
+    let file = req.files.file;
+    let fileName = date.getTime() + '_' + req.files.file.name;
+
+    file.mv(__dirname + '/UploadImage/' + fileName, async (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            await removeBg(fileName)
+            res.send(fileName)
+        }
+    })
+    
+})
 console.log('running server111');
 app.listen(5000)

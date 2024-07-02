@@ -15,6 +15,8 @@ export default function Bg() {
   const [showEula, setShowEula] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
   const [fileError, setFileError] = useState('')
+  const [fileNameWithBg, setFileNameWithBg] = useState('')
+  const [fileNameNoBg, setFileNameNoBg] = useState('')
   const inputElement = useRef();
 
 
@@ -37,21 +39,24 @@ export default function Bg() {
 
   function uploadFile(e) {
     let file = e.target.files[0]
+    let serverUrl = 'http://localhost:5000/'
     if (file.size <= 1000000 && (file.type == 'image/png' || file.type == 'image/jepg' || file.type == 'image/jpg')) {
       setFileError('');
       let formData = new FormData();
       formData.append('file', file);
       axios({
         method: 'post',
-        url: 'http://localhost:5000/upload_img',
+        url: serverUrl + 'upload_img',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data'
         },
-      }).then((res)=> {
-        console.log(res);
+      }).then((res) => {
+        setFileNameWithBg(serverUrl + res.data);
+
+        setFileNameNoBg(serverUrl + 'no_bg_' + res.data);
       })
-        .catch((error)=> {
+        .catch((error) => {
           console.log(error);
         })
     } else {
@@ -96,9 +101,9 @@ export default function Bg() {
             </div>
 
             {selctedTabNoBg === "selected_tab" ? (
-              <NoBg comt_type="no_bg" />
+              <NoBg comt_type="no_bg" fileName={fileNameNoBg} />
             ) : (
-              <NoBg comt_type="original" />
+              <NoBg comt_type="original" fileName={fileNameWithBg} />
             )}
 
             <div className="footer_left_div">
