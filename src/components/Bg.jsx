@@ -14,9 +14,11 @@ export default function Bg() {
   const [selctedTabOriginal, setSelctedTabOriginal] = useState("");
   const [showEula, setShowEula] = useState(false);
   const [showPopUp, setshowPopUp] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
   const [fileError, setFileError] = useState('')
   const [fileNameWithBg, setFileNameWithBg] = useState('')
   const [fileNameNoBg, setFileNameNoBg] = useState('')
+  const [getColor, setGetColor] = useState('')
   const inputElement = useRef();
 
 
@@ -40,10 +42,13 @@ export default function Bg() {
   function uploadFile(e) {
     let file = e.target.files[0]
     let serverUrl = 'http://localhost:5000/'
-    if (file.size <= 1000000 && (file.type == 'image/png' || file.type == 'image/jepg' || file.type == 'image/jpg')) {
+    if (file.size <= 1000000 && (file.type === 'image/png' || file.type === 'image/jepg' || file.type === 'image/jpg')) {
+      setShowLoader(true)
       setFileError('');
       let formData = new FormData();
       formData.append('file', file);
+      formData.append('color', getColor);
+      console.log(getColor);
       axios({
         method: 'post',
         url: serverUrl + 'upload_img',
@@ -53,8 +58,8 @@ export default function Bg() {
         },
       }).then((res) => {
         setFileNameWithBg(serverUrl + res.data);
-
         setFileNameNoBg(serverUrl + 'no_bg_' + res.data);
+        setShowLoader(false)
       })
         .catch((error) => {
           console.log(error);
@@ -101,8 +106,7 @@ export default function Bg() {
             </div>
 
             {selctedTabNoBg === "selected_tab" ? (
-              <NoBg comt_type="no_bg" fileName={fileNameNoBg} />
-            ) : (
+              <NoBg comt_type="no_bg" fileName={fileNameNoBg} setGetColor={setGetColor} getColor={getColor}/>) : (
               <NoBg comt_type="original" fileName={fileNameWithBg} />
             )}
 
@@ -143,10 +147,18 @@ export default function Bg() {
         </div>
 
         <div className="footer">
-          <img src={logo} className="img_1" />
-          <img src={banner} className="img_2" />
+          <img src={logo} className="img_1" alt="img_1"/>
+          <img src={banner} className="img_2" alt="img_2"/>
         </div>
       </div>
+
+      {showLoader ?
+        <div className="loader">
+          <div className="loader_in">
+            39%
+          </div>
+        </div> : <></>}
+
       {showEula ? <Eula setShowEula={setShowEula} /> : <></>}
       {showPopUp ? <DownloadFilePopUp setshowPopUp={setshowPopUp} /> : <></>}
     </>

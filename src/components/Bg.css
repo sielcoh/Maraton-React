@@ -158,3 +158,23 @@
     position: absolute;
     left: 48px;
 }
+
+.loader{
+  width: 215px;
+  height: 20px;
+  position: relative;
+  margin: 0 auto;
+  top: -377px;
+  left: -30px;
+  box-shadow: 1px 1px 10px #ffffff78;
+  line-height: 20px;
+}
+
+.loader_in{
+  background: linear-gradient(45deg, #9c27b0, #00BCD4);
+  text-align: center;
+  color: white;
+  width: 39%;
+  height: 20px;
+  font-size: 12px;
+}

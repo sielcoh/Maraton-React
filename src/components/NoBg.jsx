@@ -4,6 +4,7 @@ import './NoBg.css'
 export default function NoBg(props) {
   const inputElement = useRef();
 
+
   const focusInput = () => {
     inputElement.current.click();
   };
@@ -12,11 +13,11 @@ export default function NoBg(props) {
       
       {props.comt_type === 'no_bg' ? <div>
         <div className='no_bg_cont_text'>אל תשכח להוריד את הקבצים, הם ימחקו אוטומטית כשתצא מהאתר</div>
-        <div className='bg_color' onClick={focusInput}>צבע רקע</div>
-        <input type='color' className='color_input' ref={inputElement} />
+        <div className='bg_color' onClick={focusInput}>צבע רקע <div style={{backgroundColor: props.getColor}} className='color_choosen'></div></div>
+        <input type='color' className='color_input' ref={inputElement} onChange={(e)=>props.setGetColor(e.target.value)}/>
       </div> : <></>}
 
-      <img src={props.fileName} className='image_1'/>
+      {props.fileName ? <img src={props.fileName} className='image' alt='image'/> : <></>}
     </div>
   )
 }

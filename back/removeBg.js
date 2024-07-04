@@ -3,10 +3,11 @@ const axios = require('axios')
 const FormData = require('form-data')
 const path = require('path');
 
-module.exports = removeBg = async(fileName) =>{
+module.exports = removeBg = async(fileName, color) =>{
     const inputPath = __dirname + '/uploadImage/' + fileName;
     const formData = new FormData();
     formData.append("size", "auto");
+    formData.append("bg_color", color);
     formData.append("image_file", fs.createReadStream(inputPath), path.basename(inputPath));
 
     await axios({

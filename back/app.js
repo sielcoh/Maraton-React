@@ -1,16 +1,17 @@
 const express = require('express')
+const app = express()
 const cors = require('cors')
 const fileupload = require("express-fileupload");
 const removeBg = require('./removeBg')
-const app = express()
+
+app.use(cors())
+app.use(fileupload());
 
 app.use(express.static('imageNoBg'))
 app.use(express.static('uploadImage'))
 
 
 
-app.use(cors())
-app.use(fileupload());
 
 
 app.post('/upload_img', (req, res) => {

@@ -47,3 +47,12 @@
     top: 87px;
     height: 355px;
 }
+
+.color_choosen{
+    width: 41px;
+    height: 28px;
+    position: absolute;
+    top: 0px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
