@@ -18,6 +18,7 @@ export default function Bg() {
   const [fileError, setFileError] = useState('')
   const [fileNameWithBg, setFileNameWithBg] = useState('')
   const [fileNameNoBg, setFileNameNoBg] = useState('')
+  const [fileNameNoBgNameOnly, setfileNameNoBgNameOnly] = useState('')
   const [getColor, setGetColor] = useState('')
   const inputElement = useRef();
 
@@ -59,6 +60,7 @@ export default function Bg() {
       }).then((res) => {
         setFileNameWithBg(serverUrl + res.data);
         setFileNameNoBg(serverUrl + 'no_bg_' + res.data);
+        setfileNameNoBgNameOnly('no_bg_' + res.data);
         setShowLoader(false)
       })
         .catch((error) => {
@@ -160,7 +162,8 @@ export default function Bg() {
         </div> : <></>}
 
       {showEula ? <Eula setShowEula={setShowEula} /> : <></>}
-      {showPopUp ? <DownloadFilePopUp setshowPopUp={setshowPopUp} /> : <></>}
+      {showPopUp ? <DownloadFilePopUp setshowPopUp={setshowPopUp} fileNameNoBgNameOnly={fileNameNoBgNameOnly} /> : <></>}
     </>
   );
 }
+

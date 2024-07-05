@@ -17,17 +17,18 @@ app.use(express.static('uploadImage'))
 app.post('/upload_img', (req, res) => {
     let date = new Date();
     let file = req.files.file;
+    let color = req.body.color;
     let fileName = date.getTime() + '_' + req.files.file.name;
 
     file.mv(__dirname + '/UploadImage/' + fileName, async (err) => {
         if (err) {
             console.log(err);
         } else {
-            await removeBg(fileName)
+            await removeBg(fileName, color)
             res.send(fileName)
         }
     })
-    
+
 })
 console.log('running server111');
 app.listen(5000)

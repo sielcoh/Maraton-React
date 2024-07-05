@@ -92,3 +92,10 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+.err_not_robot{
+    text-align: center;
+    color: red;
+    font-size: 13px;
+    margin-top: 15px;
+}
