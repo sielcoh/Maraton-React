@@ -42,14 +42,13 @@ export default function Bg() {
 
   function uploadFile(e) {
     let file = e.target.files[0]
-    let serverUrl = 'http://localhost:5000/'
+    let serverUrl = 'https://maraton-react.onrender.com/'
     if (file.size <= 1000000 && (file.type === 'image/png' || file.type === 'image/jepg' || file.type === 'image/jpg')) {
       setShowLoader(true)
       setFileError('');
       let formData = new FormData();
       formData.append('file', file);
       formData.append('color', getColor);
-      console.log(getColor);
       axios({
         method: 'post',
         url: serverUrl + 'upload_img',

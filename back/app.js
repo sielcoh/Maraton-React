@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const fileupload = require("express-fileupload");
 const removeBg = require('./removeBg')
+const PORT = process.env.PORT || 5000
 
 const app = express()
 app.use(cors())
@@ -22,7 +23,6 @@ app.post('/upload_img', (req, res) => {
 
     file.mv(__dirname + '/UploadImage/' + fileName, async (err) => {
         if (err) {
-            console.log(err);
         } else {
             await removeBg(fileName, color)
             res.send(fileName)
@@ -30,5 +30,6 @@ app.post('/upload_img', (req, res) => {
     })
 
 })
-console.log('running server111');
-app.listen(5000)
+app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
+});

@@ -14,7 +14,7 @@ export default function DownloadFilePopUp(props) {
 
     const downloadFile = async () => {
         if (checkBoxSet && props.fileNameNoBgNameOnly) {
-            await fetch('http://localhost:5000/' + props.fileNameNoBgNameOnly)
+            await fetch('https://maraton-react.onrender.com' + props.fileNameNoBgNameOnly)
                 .then(response => {
                     response.blob().then(blob => {
                         debugger;
