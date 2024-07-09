@@ -6,8 +6,8 @@ const removeBg = require('./removeBg')
 const app = express()
 app.use(cors(
     {
-        origin:['https://maraton-react-back.vercel.app'],
-        methods: ["POST" , 'GET'],
+        origin:["https://maraton-react-back.vercel.app"],
+        methods: ["POST" , "GET"],
         credentials: true
     }
 ))
