@@ -20,22 +20,24 @@ app.use(express.static('uploadImage'))
 
 
 
-
-app.post('/upload_img', (req, res) => {
-    let date = new Date();
-    let file = req.files.file;
-    let color = req.body.color;
-    let fileName = date.getTime() + '_' + req.files.file.name;
-
-    file.mv(__dirname + '/UploadImage/' + fileName, async (err) => {
-        if (err) {
-        } else {
-            await removeBg(fileName, color)
-            res.send(fileName)
-        }
-    })
-
+app.get('/',(req,res)=>{
+    res.json('hello')
 })
+// app.post('/upload_img', (req, res) => {
+//     let date = new Date();
+//     let file = req.files.file;
+//     let color = req.body.color;
+//     let fileName = date.getTime() + '_' + req.files.file.name;
+
+//     file.mv(__dirname + '/UploadImage/' + fileName, async (err) => {
+//         if (err) {
+//         } else {
+//             await removeBg(fileName, color)
+//             res.send(fileName)
+//         }
+//     })
+
+// })
 app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
 });
