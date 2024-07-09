@@ -2,7 +2,6 @@ const express = require('express')
 const cors = require('cors')
 const fileupload = require("express-fileupload");
 const removeBg = require('./removeBg')
-const PORT = process.env.PORT || 5000
 
 const app = express()
 app.use(cors(
@@ -38,6 +37,6 @@ app.get('/',(req,res)=>{
 //     })
 
 // })
-app.listen(PORT, () => {
-    console.log(`server started on port ${PORT}`);
+app.listen(5000, () => {
+    console.log(`server started on port 5000`);
 });
