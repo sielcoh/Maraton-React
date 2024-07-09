@@ -5,7 +5,13 @@ const removeBg = require('./removeBg')
 const PORT = process.env.PORT || 5000
 
 const app = express()
-app.use(cors())
+app.use(cors(
+    {
+        origin:['https://maraton-react-back.vercel.app/'],
+        methods: ["POST" , 'GET'],
+        credentials: true
+    }
+))
 app.use(fileupload());
 
 app.use(express.static('imageNoBg'))
